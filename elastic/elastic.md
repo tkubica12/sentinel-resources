@@ -5,12 +5,14 @@ You might want to use Azure Sentinel for all your cloud-based events such as Azu
 Python scripts access Azure Blob storage container looking for files with queries (name of the file will be used as custom table name in Sentinel). This allows person with no knowledge of this code add or modify Elastic queries. Script than downloads data from Elastic and push it to Sentinel.
 
 TODO:
-- Writing checkpoint to Azure Blob Storage (store last execution timestamp so data is not duplicated)
 - Add checks for limits (query sizes etc.)
 - Dockerfile
 - Elastic authentication
+- Add offset from current time (to allow for some eventual consistency on Elastic side)
 
-Before running script make sure environmental variables are set as in .vars.example file
+Before running script make sure environmental variables are set as in [.vars.example](.vars.example) file.
+
+Queries are stored in Azure Blob container using tablename.query convention where tablename is name of custom table in Azure Monitor Log Analytics that will get created. Query must include timestamp range with <START_TIME> and <END_TIME> placeholders (see examples in [table1.query](table1.query)).
 
 ## Example
 Create Elastic instance using Azure Container Instances and make sure you modify elk.yaml to set your own unique DNS name.

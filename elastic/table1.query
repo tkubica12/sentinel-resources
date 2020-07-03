@@ -1,9 +1,24 @@
 {
     "query": {
-        "match": {
-            "message": {
-                "query": "6.111.27.190"
-            }
+        "bool": {
+            "must": [
+                {
+                    "range": {
+                        "@timestamp": {
+                            "gt": "<START_TIME>",
+                            "lt": "<END_TIME>",
+                            "format": "epoch_second"
+                        }
+                    }
+                },
+                {
+                    "term": {
+                        "ip": {
+                            "value": "6.111.27.190"
+                        }
+                    }
+                }
+            ]
         }
     }
 }

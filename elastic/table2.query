@@ -1,9 +1,24 @@
 {
     "query": {
-        "match": {
-            "message": {
-                "query": "AppleWebKit"
-            }
+        "bool": {
+            "must": [
+                {
+                    "range": {
+                        "@timestamp": {
+                            "gt": "<START_TIME>",
+                            "lt": "<END_TIME>",
+                            "format": "epoch_second"
+                        }
+                    }
+                },
+                {
+                    "term": {
+                        "machine.os": {
+                            "value": "Win 7"
+                        }
+                    }
+                }
+            ]
         }
     }
 }
