@@ -1,0 +1,6 @@
+export AZURE_STORAGE_CONNECTION_STRING="myconnectionstring"
+export QUERIES_CONTAINER="queries"
+export CHECKPOINTS_CONTAINER="checkpoints"
+export WORKSPACE_ID="000000-0000-00000"
+export WORKSPACE_KEY="mykey"
+export ELASTIC_URL="http://myelastic:9200/_search"
