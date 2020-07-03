@@ -15,7 +15,7 @@ def main():
 # Process query
 def process_query(query):
     logs = read_elastic(os.getenv('ELASTIC_URL'), query["data"])
-    print("Sending data to Azure")
+    print("Sending data to Azure to {} table".format(query["table"]))
     post_data(os.getenv('WORKSPACE_ID'), os.getenv('WORKSPACE_KEY'), json.dumps(logs), query["table"])
 
 # Read from Elastic
@@ -69,7 +69,8 @@ def post_data(workspace_id, shared_key, body, log_type):
       'content-type': content_type,
       'Authorization': signature,
       'Log-Type': log_type,
-      'x-ms-date': rfc1123date
+      'x-ms-date': rfc1123date,
+      'time-generated-field': 'utc_time'
   }
 
   response = requests.post(uri,data=body, headers=headers)

@@ -7,7 +7,6 @@ Python scripts access Azure Blob storage container looking for files with querie
 TODO:
 - Writing checkpoint to Azure Blob Storage (store last execution timestamp so data is not duplicated)
 - Add checks for limits (query sizes etc.)
-- Add utc_time field to be used as TimeGenerated in Sentinel
 - Dockerfile
 - Elastic authentication
 
