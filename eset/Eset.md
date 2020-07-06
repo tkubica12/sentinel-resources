@@ -1,6 +1,8 @@
 # Integrating ESET SMC to Azure Sentinel
 Notes from PoC on Azure Sentinel integration with ESET Security Management Center
 
+**I am in process to push this as community preview connector in Azure-Sentinel GitHub and subsequently Sentinel GUI. At that point this repo will not evolve and further development will be done in official Azure-Sentinel repo.
+
 # Getting ESET logs to Azure Sentinel
 We will use Ubuntu 18.04 machine to act as syslog target for ESET and use Log Analytics monitoring agent to push messages to Azure Monitor. To allow for efficient queries we will parse data on agent before sending to Log Analytics and push all data into separate table eset_CL.
 
@@ -132,14 +134,14 @@ eset_CL
 # Example workbook
 In this section we will create Workbook to visualize data from Eset SMC.
 
-**TBD**
+See WorkBooks folder.
 
 # Example hunting query
 In this section we will propose few hunting queries to check for interesting data.
 
-**TBD**
+See example queries in data connector.
 
 # Example detection rule
 In this section we will create detection rule to escalate high severity events from Eset to Sentinel Investigation dashboard and also map entities such as ip, user or url so Investigation map, URL detonation and other features are available for Eset data.
 
-**TBD**
+See Detections folder.
